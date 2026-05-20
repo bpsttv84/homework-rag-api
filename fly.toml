@@ -1,0 +1,25 @@
+# Якщо ім'я `homework-rag-api` зайняте: fly apps create <унікальне-ім'я> і зміни рядок нижче.
+app = "homework-rag-api"
+primary_region = "fra"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[http_service.checks]]
+  interval = "30s"
+  timeout = "10s"
+  grace_period = "300s"
+  method = "GET"
+  path = "/health"
+
+# Мінімум RAM для sentence-transformers при першому завантаженні моделі (інакше OOM на малій VM).
+[[vm]]
+  memory = "2gb"
+  cpus = 1

@@ -1,0 +1,27 @@
+# Demo API keys (Lesson 10). Replace keys in production.
+# Each tier: tokens_per_minute (bucket capacity, refills fully over 60s), models = [primary, fallback1, fallback2]
+
+keys:
+  sk-demo-free-rag:
+    tier: demo-free
+    tokens_per_minute: 5000
+    models:
+      - meta-llama/llama-3.2-3b-instruct:free
+      - google/gemini-2.0-flash-001
+      - mistralai/mistral-7b-instruct:free
+
+  sk-demo-pro-rag:
+    tier: demo-pro
+    tokens_per_minute: 20000
+    models:
+      - openai/gpt-4o-mini
+      - anthropic/claude-3.5-haiku
+      - meta-llama/llama-3.1-8b-instruct
+
+  sk-demo-enterprise-rag:
+    tier: demo-enterprise
+    tokens_per_minute: 100000
+    models:
+      - openai/gpt-4o
+      - anthropic/claude-3.5-sonnet
+      - openai/gpt-4o-mini

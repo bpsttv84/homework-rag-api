@@ -1,0 +1,21 @@
+# Python 3.11+
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+openai>=1.55.0
+# Keep within ~1 minor of Qdrant server (docker-compose uses v1.12.x) to avoid API mismatches.
+qdrant-client>=1.12.0,<1.14.0
+redis>=5.2.0
+sentence-transformers>=3.3.0
+tiktoken>=0.8.0
+# SDK 4.x (trace() removed — використовуємо start_observation у коді)
+langfuse>=4.0.0,<5.0.0
+sqlalchemy[asyncio]>=2.0.36
+aiosqlite>=0.20.0
+asyncpg>=0.30.0
+httpx>=0.27.0
+python-multipart>=0.0.12
+pypdf>=5.1.0
+numpy>=1.26.0
+PyYAML>=6.0.0
