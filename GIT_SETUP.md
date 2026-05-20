@@ -31,11 +31,17 @@ Email — той, що прив’язаний до GitHub (Settings → Emails)
 **SSH:** Settings → SSH and GPG keys → New SSH key.
 
 ```powershell
-ssh-keygen -t ed25519 -C "твій@email.com" -f "$env:USERPROFILE\.ssh\id_ed25519_github"
+# Ключ уже може бути згенерований як id_ed25519_github
 Get-Content "$env:USERPROFILE\.ssh\id_ed25519_github.pub"
 ```
 
-Встав публічний ключ у GitHub. Перевірка:
+**Додай ключ на GitHub:** https://github.com/settings/ssh/new  
+- Title: `Windows Cursor`  
+- Key: встав увесь рядок з `.pub` (починається з `ssh-ed25519 AAAA...`)
+
+Файл `~/.ssh/config` має містити `IdentityFile ~/.ssh/id_ed25519_github`.
+
+Перевірка:
 
 ```powershell
 ssh -T git@github.com
